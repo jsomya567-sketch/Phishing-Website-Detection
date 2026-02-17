@@ -1,37 +1,80 @@
 # Phishing Website Detection System
 
-## Overview
-This project implements a Machine Learning-based system to detect phishing websites using security-related URL features.
+##  Overview
+This project implements a Machine Learning-based system to detect phishing websites using security-related URL features. 
 
-## Problem Statement
-Phishing websites attempt to steal sensitive information by mimicking legitimate websites. This project builds a classification model to automatically detect phishing websites.
+Phishing is one of the most common cyber security threats where attackers create fake websites to steal user credentials such as passwords, banking details, and personal data.
 
-## Dataset
-- 11,055 website samples
-- 30 security-related features
-- Target column: Result (0 = Legitimate, 1 = Phishing)
+This system uses supervised machine learning algorithms to classify websites as either:
 
-## Models Used
-1. Logistic Regression
-2. Random Forest Classifier
+- 0 → Legitimate
+- 1 → Phishing
 
-## Results
-- Logistic Regression Accuracy: 92.44%
-- Random Forest Accuracy: 96.65%
 
-Random Forest performed better and significantly reduced false negatives.
+##  Problem Statement
+To build a classification model that can automatically detect phishing websites based on extracted URL and domain features, thereby helping prevent cyber attacks and data theft.
+
+---
+
+##  Dataset Description
+- Total Samples: 11,055 websites
+- Total Features: 30 security-related features
+- Target Column: `Result`
+  - 0 → Legitimate Website
+  - 1 → Phishing Website
+
+### Example Features:
+- URL Length
+- Having IP Address
+- SSL Final State
+- Domain Registration Length
+- Google Index
+- Page Rank
+- Age of Domain
+
+
+## Machine Learning Models Used
+
+### 1️ Logistic Regression
+- Accuracy: 92.44%
+- Baseline classification model
+
+### 2 Random Forest Classifier
+- Accuracy: 96.65%
+- Reduced false negatives significantly
+- Selected as final deployed model
+
+Random Forest performed better due to ensemble learning and better handling of feature interactions.
+
+
+##  Model Evaluation
+
+Evaluation metrics used:
+- Accuracy
+- Confusion Matrix
+- Precision
+- Recall
+
+Random Forest reduced phishing misclassification compared to Logistic Regression.
+
+
+## Application Deployment
+
+The trained Random Forest model is deployed using Streamlit to provide a simple interactive interface.
+
+Users can:
+- Test the model using a random website sample
+- View prediction results instantly
+
 
 ## Technologies Used
 - Python
 - Pandas
+- NumPy
 - Scikit-learn
-- Streamlit
 - Matplotlib
 - Seaborn
+- Streamlit
 
-## How to Run
-1. Install dependencies:
-   pip install -r requirements.txt
 
-2. Run the application:
-   streamlit run app.py
+
